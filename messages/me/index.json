@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "tours": "Ture",
+    "gallery": "Galerija",
+    "about": "O nama",
+    "contact": "Kontakt",
+    "bookNow": "Rezerviši"
+  },
+  "intro": {
+    "tagline": "Istraži more. Oseti slobodu.",
+    "enter": "Ulaz",
+    "locale": "Crnogorski"
+  },
+  "hero": {
+    "headline": "Tvoje more čeka",
+    "subheadline": "Premium iskustva na Jadranskom moru — ture, ronjenje, pecanje, sunset krstarenja",
+    "cta": "Pogledaj ture",
+    "ctaSecondary": "Kontaktiraj nas"
+  },
+  "tours": {
+    "title": "Naše Ture",
+    "subtitle": "Svako iskustvo je jedinstven doživljaj",
+    "bookWhatsApp": "Rezerviši na WhatsApp",
+    "priceFrom": "od",
+    "duration": "Trajanje",
+    "maxPeople": "Max osoba",
+    "included": "Uključeno",
+    "notIncluded": "Nije uključeno",
+    "whatToBring": "Šta ponijeti",
+    "empty": "Ture uskoro..."
+  },
+  "gallery": {
+    "title": "Galerija",
+    "subtitle": "Trenuci koji ostaju zauvijek",
+    "all": "Sve",
+    "empty": "Galerija uskoro..."
+  },
+  "about": {
+    "title": "O kapetanu",
+    "subtitle": "Vaš vodič na moru"
+  },
+  "testimonials": {
+    "title": "Što kažu gosti",
+    "empty": "Recenzije uskoro..."
+  },
+  "faq": {
+    "title": "Često postavljana pitanja",
+    "empty": "FAQ uskoro..."
+  },
+  "contact": {
+    "title": "Kontaktirajte nas",
+    "subtitle": "Pitajte nas bilo šta",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "writeMessage": "Pišite nam"
+  },
+  "footer": {
+    "rights": "Sva prava zadržana",
+    "tagline": "Premium morska iskustva, Budva"
+  },
+  "whatsapp": {
+    "defaultMessage": "Zdravo! Zanima me rezervacija ture."
+  },
+  "common": {
+    "loading": "Učitava se...",
+    "error": "Došlo je do greške",
+    "comingSoon": "Uskoro...",
+    "perPerson": "po osobi",
+    "hours": "h",
+    "close": "Zatvori"
+  }
+}

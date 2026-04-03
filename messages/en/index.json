@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "tours": "Tours",
+    "gallery": "Gallery",
+    "about": "About",
+    "contact": "Contact",
+    "bookNow": "Book Now"
+  },
+  "intro": {
+    "tagline": "Explore the sea. Feel the freedom.",
+    "enter": "Enter",
+    "locale": "English"
+  },
+  "hero": {
+    "headline": "Your sea awaits",
+    "subheadline": "Premium Adriatic experiences — tours, diving, fishing, sunset cruises",
+    "cta": "Explore Tours",
+    "ctaSecondary": "Contact Us"
+  },
+  "tours": {
+    "title": "Our Tours",
+    "subtitle": "Every experience is a unique adventure",
+    "bookWhatsApp": "Book via WhatsApp",
+    "priceFrom": "from",
+    "duration": "Duration",
+    "maxPeople": "Max people",
+    "included": "Included",
+    "notIncluded": "Not included",
+    "whatToBring": "What to bring",
+    "empty": "Tours coming soon..."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "Moments that last forever",
+    "all": "All",
+    "empty": "Gallery coming soon..."
+  },
+  "about": {
+    "title": "Meet the Captain",
+    "subtitle": "Your guide on the sea"
+  },
+  "testimonials": {
+    "title": "What guests say",
+    "empty": "Reviews coming soon..."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "empty": "FAQ coming soon..."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Ask us anything",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "writeMessage": "Send us a message"
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "tagline": "Premium sea experiences, Budva"
+  },
+  "whatsapp": {
+    "defaultMessage": "Hi! I'm interested in booking a tour."
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "comingSoon": "Coming soon...",
+    "perPerson": "per person",
+    "hours": "h",
+    "close": "Close"
+  }
+}
