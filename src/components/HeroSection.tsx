@@ -10,13 +10,25 @@ export default async function HeroSection() {
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-tamna"
     >
-      {/* Background — cinematic sea gradient */}
+      {/*
+        PLACEHOLDER: Sunset sea background
+        Nemanja zamijenjuje pravu sliku kroz /admin → Site Settings → heroBackgroundImage
+      */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-b from-tamna via-[#0d2040] to-tamna" />
-        {/* Tirkizna sea glow — bottom center */}
-        <div className="absolute bottom-1/4 left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-tirkizna opacity-[0.07] blur-3xl" />
-        {/* Koralna accent — upper right */}
-        <div className="absolute top-1/3 right-1/4 h-64 w-64 rounded-full bg-koralna opacity-[0.04] blur-3xl" />
+        {/* Deep sea base */}
+        <div className="absolute inset-0 bg-[#0a1628]" />
+        {/* Sunset horizon — koralna/narandžasta odozgo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0a0f] via-[#2d1520] to-[#0a1628]" />
+        {/* Sunset glow — lijevo-centar, zlatno-narandžasto */}
+        <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-br from-[#FF6B4A]/25 via-[#c4581a]/15 to-transparent" />
+        {/* Sea reflection — tirkizna odozdo */}
+        <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-[#00C2C7]/12 via-[#004f6b]/10 to-transparent" />
+        {/* Sun orb */}
+        <div className="absolute top-[18%] left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF8C42] opacity-20 blur-3xl" />
+        {/* Horizon line shimmer */}
+        <div className="absolute top-[38%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF6B4A]/30 to-transparent" />
+        {/* Dark overlay za čitljivost teksta */}
+        <div className="absolute inset-0 bg-tamna/55" />
       </div>
 
       {/* Content */}
@@ -52,7 +64,7 @@ export default async function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll line */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="h-10 w-px bg-gradient-to-b from-transparent to-tirkizna/40" />
       </div>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslations, useLocale } from 'next-intl'
 import { Link } from '@/i18n/navigation'
 import LogoSVG from './LogoSVG'
+import BoatButton from './BoatButton'
 
 const LOCALES = [
   { code: 'me', label: 'ME' },
@@ -15,7 +16,6 @@ const LOCALES = [
 export default function IntroScreen() {
   const t = useTranslations('intro')
   const locale = useLocale()
-  // null = unknown (before hydration), true = show, false = hide
   const [show, setShow] = useState<boolean | null>(null)
 
   useEffect(() => {
@@ -42,11 +42,12 @@ export default function IntroScreen() {
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-tamna"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
         >
           {/* Sea glow */}
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
-            <div className="absolute bottom-0 left-1/2 h-96 w-[600px] -translate-x-1/2 rounded-full bg-tirkizna opacity-[0.08] blur-3xl" />
+            <div className="absolute bottom-0 left-1/2 h-96 w-[600px] -translate-x-1/2 rounded-full bg-tirkizna opacity-[0.07] blur-3xl" />
+            <div className="absolute top-1/3 right-1/3 h-48 w-48 rounded-full bg-koralna opacity-[0.04] blur-2xl" />
           </div>
 
           {/* Language picker */}
@@ -68,20 +69,40 @@ export default function IntroScreen() {
           </div>
 
           {/* Center content */}
-          <div className="flex flex-col items-center gap-8 px-8 text-center">
-            <LogoSVG size="lg" />
-
-            <p className="text-xs font-light tracking-[0.3em] text-svetla/50 uppercase">
-              {t('tagline')}
-            </p>
-
-            <button
-              onClick={handleEnter}
-              className="mt-2 border border-tirkizna/60 px-12 py-3 text-xs font-semibold tracking-[0.35em] text-tirkizna uppercase transition-all duration-300 hover:border-tirkizna hover:bg-tirkizna hover:text-tamna focus-visible:outline focus-visible:outline-2 focus-visible:outline-tirkizna"
+          <motion.div
+            className="flex flex-col items-center gap-10 px-8 text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          >
+            {/* Animated logo */}
+            <motion.div
+              initial={{ scale: 0.85, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
             >
-              {t('enter')}
-            </button>
-          </div>
+              <LogoSVG size="lg" />
+            </motion.div>
+
+            {/* Tagline */}
+            <motion.p
+              className="text-xs font-light tracking-[0.3em] text-svetla/45 uppercase"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+            >
+              {t('tagline')}
+            </motion.p>
+
+            {/* Boat enter button */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
+            >
+              <BoatButton label={t('enter')} onClick={handleEnter} />
+            </motion.div>
+          </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
