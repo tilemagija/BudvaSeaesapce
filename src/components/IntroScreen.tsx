@@ -16,14 +16,14 @@ const LOCALES = [
 export default function IntroScreen() {
   const t = useTranslations('intro')
   const locale = useLocale()
-  const [show, setShow] = useState<boolean | null>(null)
+  const [show, setShow] = useState(true)
 
   useEffect(() => {
     try {
-      setShow(!sessionStorage.getItem('hasSeenIntro'))
-    } catch {
-      setShow(true)
-    }
+      if (sessionStorage.getItem('hasSeenIntro')) {
+        setShow(false)
+      }
+    } catch {}
   }, [])
 
   function handleEnter() {
@@ -32,8 +32,6 @@ export default function IntroScreen() {
     } catch {}
     setShow(false)
   }
-
-  if (show === null) return null
 
   return (
     <AnimatePresence>
