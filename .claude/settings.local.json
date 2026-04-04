@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/projekti//**)",
+      "Read(//c/projekti/**)",
+      "Bash(npm install:*)",
+      "Bash(ls C:/projekti/BudaSeaesapce/src/app/[locale]/)"
+    ]
+  }
+}
