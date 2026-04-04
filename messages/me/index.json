@@ -19,7 +19,10 @@
   },
   "tours": {
     "title": "Naše Ture",
+    "headline": "Uplovi. Istraži. Zapamti zauvijek.",
     "subtitle": "Svako iskustvo je jedinstven doživljaj",
+    "startAdventure": "Počni avanturu",
+    "bookNow": "Rezerviši odmah",
     "bookWhatsApp": "Rezerviši na WhatsApp",
     "priceFrom": "od",
     "duration": "Trajanje",

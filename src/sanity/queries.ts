@@ -1,6 +1,26 @@
 import { groq } from "next-sanity";
 
 // ---- TOURS ----
+
+// Full tour data (used for cards + modal — fetches everything in one query)
+export const toursFullQuery = groq`
+  *[_type == "tour" && isActive == true] | order(order asc, _createdAt asc) {
+    _id,
+    "title": title,
+    "slug": slug.current,
+    "shortDescription": shortDescription,
+    price,
+    "priceNote": priceNote,
+    duration,
+    maxPeople,
+    coverImage,
+    "includedItems": includedItems,
+    "whatsappMessage": whatsappMessage,
+    isFeatured,
+    "category": category->{ _id, "title": title, "slug": slug.current, icon }
+  }
+`;
+
 export const toursQuery = groq`
   *[_type == "tour" && isActive == true] | order(order asc, _createdAt asc) {
     _id,

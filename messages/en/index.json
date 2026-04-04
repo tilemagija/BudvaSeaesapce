@@ -19,7 +19,10 @@
   },
   "tours": {
     "title": "Our Tours",
+    "headline": "Set sail. Explore. Remember forever.",
     "subtitle": "Every experience is a unique adventure",
+    "startAdventure": "Start your adventure",
+    "bookNow": "Book now",
     "bookWhatsApp": "Book via WhatsApp",
     "priceFrom": "from",
     "duration": "Duration",

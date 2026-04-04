@@ -27,6 +27,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide scrollbar while keeping scroll functionality */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
