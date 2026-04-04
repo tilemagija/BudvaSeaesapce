@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import IntroScreen from '@/components/IntroScreen'
 import Nav from '@/components/Nav'
 import HeroSection from '@/components/HeroSection'

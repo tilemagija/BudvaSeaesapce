@@ -9,7 +9,7 @@ export default async function ToursSection() {
 
   let tours: Tour[] = []
   try {
-    tours = await client.fetch(toursFullQuery, {}, { next: { revalidate: 60 } })
+    tours = await client.fetch(toursFullQuery, {}, { cache: 'no-store' })
   } catch {
     // Sanity unavailable or misconfigured — show empty state
   }
