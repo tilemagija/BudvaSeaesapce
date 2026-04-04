@@ -6,6 +6,8 @@ export interface GalleryItem {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   image?: any
   videoUrl?: string
+  /** Placeholder-only — Unsplash URL, not present in real Sanity data */
+  _placeholderUrl?: string
   caption?: LocaleString
   category?: {
     _id: string

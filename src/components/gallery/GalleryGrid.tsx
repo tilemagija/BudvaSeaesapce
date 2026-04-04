@@ -36,9 +36,8 @@ export default function GalleryGrid({ items }: Props) {
     <div className="columns-2 md:columns-3 lg:columns-4 gap-3 px-4 md:px-8 max-w-7xl mx-auto">
       {items.map((item) => {
         const isVideo = item.mediaType === 'video' && item.videoUrl
-        const imageUrl = item.image
-          ? urlFor(item.image).width(600).url()
-          : PLACEHOLDER
+        const imageUrl = item._placeholderUrl
+          ?? (item.image ? urlFor(item.image).width(600).url() : PLACEHOLDER)
         const caption = item.caption?.[locale] ?? item.caption?.en
 
         return (
