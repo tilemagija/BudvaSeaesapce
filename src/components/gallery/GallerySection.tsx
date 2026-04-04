@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server'
 import { client } from '@/sanity/client'
 import { galleryQuery } from '@/sanity/queries'
 import GalleryGrid from './GalleryGrid'
+import GallerySectionHeader from './GallerySectionHeader'
 import type { GalleryItem } from '@/types/gallery'
 
 // Unsplash placeholder items — prikazuju se dok nema sadrzaja u CMS-u
@@ -33,19 +34,11 @@ export default async function GallerySection() {
   const displayItems = items.length > 0 ? items : PLACEHOLDER_ITEMS
 
   return (
-    <section id="gallery" className="bg-tamna py-20">
-      <div className="max-w-4xl mx-auto px-6 mb-12 text-center">
-        <p className="text-xs font-semibold tracking-[0.45em] text-tirkizna uppercase mb-4">
-          Budva · Montenegro
-        </p>
-        <h2 className="font-display text-4xl md:text-5xl font-bold text-svetla leading-[1.1] tracking-tight">
-          {t('title')}
-        </h2>
-        <p className="mt-4 text-svetla/50 text-base font-light">
-          {t('subtitle')}
-        </p>
-      </div>
-
+    <section id="gallery" className="bg-tamna py-16 md:py-20">
+      <GallerySectionHeader
+        title={t('title')}
+        subtitle={t('subtitle')}
+      />
       <GalleryGrid items={displayItems} />
     </section>
   )

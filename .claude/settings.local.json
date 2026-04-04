@@ -4,7 +4,12 @@
       "Read(//c/projekti//**)",
       "Read(//c/projekti/**)",
       "Bash(npm install:*)",
-      "Bash(ls C:/projekti/BudaSeaesapce/src/app/[locale]/)"
+      "Bash(ls C:/projekti/BudaSeaesapce/src/app/[locale]/)",
+      "Bash(npm run:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(ls .env*)"
     ]
   }
 }

@@ -1,6 +1,6 @@
 import IntroScreen from '@/components/IntroScreen'
 import Nav from '@/components/Nav'
-import HeroSection from '@/components/HeroSection'
+import HeroSection from '@/components/HeroSectionServer'
 import ToursSection from '@/components/tours/ToursSection'
 import GallerySection from '@/components/gallery/GallerySection'
 import CaptainSection from '@/components/CaptainSection'
