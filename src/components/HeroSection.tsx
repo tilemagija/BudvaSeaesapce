@@ -1,6 +1,10 @@
 import { getTranslations } from 'next-intl/server'
+import Image from 'next/image'
 
 const WA_LINK = `https://wa.me/38267087728?text=${encodeURIComponent("Hi! I'm interested in booking a sea experience.")}`
+
+// PLACEHOLDER — Nemanja zamijenjuje kroz /admin → Site Settings → heroBackgroundImage
+const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80'
 
 export default async function HeroSection() {
   const t = await getTranslations('hero')
@@ -10,25 +14,22 @@ export default async function HeroSection() {
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-tamna"
     >
-      {/*
-        PLACEHOLDER: Sunset sea background
-        Nemanja zamijenjuje pravu sliku kroz /admin → Site Settings → heroBackgroundImage
-      */}
-      <div className="pointer-events-none absolute inset-0">
-        {/* Deep sea base */}
-        <div className="absolute inset-0 bg-[#0a1628]" />
-        {/* Sunset horizon — koralna/narandžasta odozgo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0a0f] via-[#2d1520] to-[#0a1628]" />
-        {/* Sunset glow — lijevo-centar, zlatno-narandžasto */}
-        <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-br from-[#FF6B4A]/25 via-[#c4581a]/15 to-transparent" />
-        {/* Sea reflection — tirkizna odozdo */}
-        <div className="absolute bottom-0 left-0 right-0 h-2/5 bg-gradient-to-t from-[#00C2C7]/12 via-[#004f6b]/10 to-transparent" />
-        {/* Sun orb */}
-        <div className="absolute top-[18%] left-1/2 h-40 w-40 -translate-x-1/2 rounded-full bg-[#FF8C42] opacity-20 blur-3xl" />
-        {/* Horizon line shimmer */}
-        <div className="absolute top-[38%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#FF6B4A]/30 to-transparent" />
-        {/* Dark overlay za čitljivost teksta */}
-        <div className="absolute inset-0 bg-tamna/55" />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src={PLACEHOLDER_IMAGE}
+          alt="Budva sea experience"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Dark gradient overlay za čitljivost */}
+        <div className="absolute inset-0 bg-gradient-to-b from-tamna/70 via-tamna/50 to-tamna/80" />
+        {/* Koralna sunset tinta odozgo */}
+        <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#FF6B4A]/20 to-transparent" />
+        {/* Tirkizna tinta odozdo */}
+        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-tamna to-transparent" />
       </div>
 
       {/* Content */}
@@ -41,11 +42,10 @@ export default async function HeroSection() {
           {t('headline')}
         </h1>
 
-        <p className="mx-auto mb-10 max-w-lg text-base font-light leading-relaxed text-svetla/55 md:text-lg">
+        <p className="mx-auto mb-10 max-w-lg text-base font-light leading-relaxed text-svetla/70 md:text-lg">
           {t('subheadline')}
         </p>
 
-        {/* CTAs */}
         <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="#tours"
@@ -57,7 +57,7 @@ export default async function HeroSection() {
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full border border-svetla/25 px-8 py-4 text-xs font-semibold tracking-[0.25em] text-svetla/70 uppercase transition-all hover:border-svetla/60 hover:text-svetla sm:w-auto"
+            className="w-full border border-svetla/30 px-8 py-4 text-xs font-semibold tracking-[0.25em] text-svetla/80 uppercase transition-all hover:border-svetla hover:text-svetla sm:w-auto"
           >
             {t('ctaSecondary')}
           </a>
@@ -66,7 +66,7 @@ export default async function HeroSection() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <div className="h-10 w-px bg-gradient-to-b from-transparent to-tirkizna/40" />
+        <div className="h-10 w-px bg-gradient-to-b from-transparent to-tirkizna/50" />
       </div>
     </section>
   )
