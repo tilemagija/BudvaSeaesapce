@@ -68,7 +68,9 @@ export const tourCategoriesQuery = groq`
 export const galleryQuery = groq`
   *[_type == "galleryItem" && isActive == true] | order(order asc, _createdAt asc) {
     _id,
+    mediaType,
     image,
+    "videoUrl": video.asset->url,
     "caption": caption,
     "category": category->{ _id, "title": title, "slug": slug.current }
   }

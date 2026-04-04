@@ -36,6 +36,31 @@ body {
   display: none;
 }
 
+/* Shimmer sweep — tirkizna → koralna → tirkizna */
+@keyframes shimmer-sweep {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--tirkizna) 0%,
+    #7fffff 20%,
+    var(--koralna) 40%,
+    #ff9f7a 50%,
+    var(--koralna) 60%,
+    #7fffff 80%,
+    var(--tirkizna) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer-sweep 4s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
