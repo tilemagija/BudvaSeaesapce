@@ -5,6 +5,7 @@ import path from "path";
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['styled-components'],
   images: {
     remotePatterns: [
       {
