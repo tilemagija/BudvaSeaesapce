@@ -4,7 +4,7 @@ import { groq } from "next-sanity";
 
 // Full tour data (used for cards + modal — fetches everything in one query)
 export const toursFullQuery = groq`
-  *[_type == "tour" && isActive == true] | order(order asc, _createdAt asc) {
+  *[_type == "tour" && (isActive == true || !defined(isActive))] | order(order asc, _createdAt asc) {
     _id,
     "title": title,
     "slug": slug.current,
