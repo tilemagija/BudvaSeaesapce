@@ -36,12 +36,6 @@ export const tour = defineType({
       validation: (R) => R.required().positive(),
     }),
     defineField({
-      name: "priceNote",
-      title: "Napomena uz cijenu",
-      type: "localeString",
-      description: "Npr: 'po osobi' / 'per person'",
-    }),
-    defineField({
       name: "duration",
       title: "Trajanje",
       type: "string",
@@ -53,12 +47,6 @@ export const tour = defineType({
       type: "number",
     }),
     defineField({
-      name: "category",
-      title: "Kategorija",
-      type: "reference",
-      to: [{ type: "tourCategory" }],
-    }),
-    defineField({
       name: "coverImage",
       title: "Naslovna slika",
       type: "image",
@@ -66,46 +54,10 @@ export const tour = defineType({
       validation: (R) => R.required(),
     }),
     defineField({
-      name: "galleryImages",
-      title: "Galerija slike",
-      type: "array",
-      of: [{ type: "image", options: { hotspot: true } }],
-    }),
-    defineField({
-      name: "includedItems",
-      title: "Šta je uključeno",
-      type: "object",
-      fields: [
-        { name: "me", title: "Crnogorski 🇲🇪", type: "array", of: [{ type: "string" }] },
-        { name: "en", title: "English 🇬🇧", type: "array", of: [{ type: "string" }] },
-        { name: "ru", title: "Русский 🇷🇺", type: "array", of: [{ type: "string" }] },
-      ],
-    }),
-    defineField({
-      name: "notIncluded",
-      title: "Nije uključeno",
-      type: "object",
-      fields: [
-        { name: "me", title: "Crnogorski 🇲🇪", type: "array", of: [{ type: "string" }] },
-        { name: "en", title: "English 🇬🇧", type: "array", of: [{ type: "string" }] },
-        { name: "ru", title: "Русский 🇷🇺", type: "array", of: [{ type: "string" }] },
-      ],
-    }),
-    defineField({
-      name: "whatToBring",
-      title: "Šta ponijeti",
-      type: "object",
-      fields: [
-        { name: "me", title: "Crnogorski 🇲🇪", type: "array", of: [{ type: "string" }] },
-        { name: "en", title: "English 🇬🇧", type: "array", of: [{ type: "string" }] },
-        { name: "ru", title: "Русский 🇷🇺", type: "array", of: [{ type: "string" }] },
-      ],
-    }),
-    defineField({
       name: "whatsappMessage",
-      title: "WhatsApp poruka",
-      type: "localeString",
-      description: "Pre-popunjena poruka za svaki jezik",
+      title: "WhatsApp poruka (EN)",
+      type: "string",
+      description: "Pre-popunjena poruka na engleskom — npr: 'Hi! I'm interested in the Sunset Cruise.'",
     }),
     defineField({
       name: "isActive",

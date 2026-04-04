@@ -26,7 +26,6 @@ export default function TourModal({ tour, onClose }: Props) {
     setIsMobile(window.innerWidth < 768)
   }, [])
 
-  // Body scroll lock when open
   useEffect(() => {
     if (tour) {
       document.body.style.overflow = 'hidden'
@@ -36,7 +35,6 @@ export default function TourModal({ tour, onClose }: Props) {
     return () => { document.body.style.overflow = '' }
   }, [tour])
 
-  // Close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose() }
     window.addEventListener('keydown', onKey)
@@ -49,11 +47,9 @@ export default function TourModal({ tour, onClose }: Props) {
 
   const title = tour?.title?.[locale] ?? tour?.title?.en ?? ''
   const description = tour?.shortDescription?.[locale] ?? tour?.shortDescription?.en ?? ''
-  const priceNote = tour?.priceNote?.[locale] ?? tour?.priceNote?.en ?? ''
-  const included = tour?.includedItems?.[locale] ?? tour?.includedItems?.en ?? []
 
   const defaultMsg = `Hi! I'm interested in booking: ${tour?.title?.en ?? title}`
-  const waMsg = tour?.whatsappMessage?.[locale] ?? tour?.whatsappMessage?.en ?? defaultMsg
+  const waMsg = tour?.whatsappMessage ?? defaultMsg
   const waLink = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`
 
   const mobileVariants = {
@@ -69,7 +65,6 @@ export default function TourModal({ tour, onClose }: Props) {
 
   return (
     <>
-      {/* Backdrop */}
       <AnimatePresence>
         {tour && (
           <motion.div
@@ -84,7 +79,6 @@ export default function TourModal({ tour, onClose }: Props) {
         )}
       </AnimatePresence>
 
-      {/* Modal panel */}
       <AnimatePresence>
         {tour && (
           <motion.div
@@ -101,7 +95,6 @@ export default function TourModal({ tour, onClose }: Props) {
             exit="exit"
             transition={{ type: 'spring', damping: 30, stiffness: 320 }}
           >
-            {/* Close button */}
             <button
               onClick={onClose}
               className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/50 text-svetla backdrop-blur-sm text-xs font-bold"
@@ -110,7 +103,6 @@ export default function TourModal({ tour, onClose }: Props) {
               ✕
             </button>
 
-            {/* Hero image */}
             <div className="relative h-56 sm:h-64 overflow-hidden rounded-t-3xl md:rounded-t-2xl flex-shrink-0">
               <Image
                 src={imageUrl}
@@ -121,29 +113,20 @@ export default function TourModal({ tour, onClose }: Props) {
               />
             </div>
 
-            {/* Tirkizna divider */}
             <div className="h-[2px] bg-tirkizna flex-shrink-0" />
 
-            {/* Content */}
             <div className="px-6 py-5">
-              {/* Title + price */}
               <div className="flex items-start justify-between gap-3 mb-3">
                 <h2 className="font-display text-xl font-semibold text-koralna leading-tight flex-1">
                   {title}
                 </h2>
                 {tour.price && (
-                  <span className="flex-shrink-0 flex items-baseline gap-0.5 px-3 py-1 bg-tirkizna text-tamna text-sm font-bold rounded-full">
+                  <span className="flex-shrink-0 px-3 py-1 bg-tirkizna text-tamna text-sm font-bold rounded-full">
                     €{tour.price}
-                    {priceNote && (
-                      <span className="text-[10px] font-normal opacity-75 ml-0.5">
-                        / {priceNote}
-                      </span>
-                    )}
                   </span>
                 )}
               </div>
 
-              {/* Meta pills */}
               {(tour.duration || tour.maxPeople) && (
                 <div className="flex gap-2 mb-4 flex-wrap">
                   {tour.duration && (
@@ -156,37 +139,13 @@ export default function TourModal({ tour, onClose }: Props) {
                       👥 max {tour.maxPeople}
                     </span>
                   )}
-                  {tour.category?.icon && (
-                    <span className="px-3 py-1 bg-white/10 text-svetla/80 text-xs rounded-full">
-                      {tour.category.icon} {tour.category.title?.[locale] ?? tour.category.title?.en}
-                    </span>
-                  )}
                 </div>
               )}
 
-              {/* Description */}
-              <p className="text-svetla/75 text-sm leading-relaxed mb-5">
+              <p className="text-svetla/75 text-sm leading-relaxed mb-6">
                 {description}
               </p>
 
-              {/* Included items */}
-              {included.length > 0 && (
-                <div className="mb-6">
-                  <p className="text-xs font-semibold text-tirkizna uppercase tracking-wider mb-2">
-                    {t('included')}
-                  </p>
-                  <ul className="space-y-1.5">
-                    {included.map((item, i) => (
-                      <li key={i} className="text-sm text-svetla/70 flex items-start gap-2">
-                        <span className="text-tirkizna mt-0.5 flex-shrink-0">✓</span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {/* Book Now CTA */}
               <a
                 href={waLink}
                 target="_blank"

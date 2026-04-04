@@ -41,12 +41,6 @@ export default function TourCard({ tour, onOpen }: Props) {
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 640px) 78vw, (max-width: 768px) 288px, 320px"
         />
-        {/* Category emoji badge */}
-        {tour.category?.icon && (
-          <span className="absolute top-3 right-3 text-base bg-black/50 backdrop-blur-sm rounded-full w-8 h-8 flex items-center justify-center leading-none">
-            {tour.category.icon}
-          </span>
-        )}
       </div>
 
       {/* Tirkizna divider */}

@@ -10,14 +10,11 @@ export const toursFullQuery = groq`
     "slug": slug.current,
     "shortDescription": shortDescription,
     price,
-    "priceNote": priceNote,
     duration,
     maxPeople,
     coverImage,
-    "includedItems": includedItems,
-    "whatsappMessage": whatsappMessage,
-    isFeatured,
-    "category": category->{ _id, "title": title, "slug": slug.current, icon }
+    whatsappMessage,
+    isFeatured
   }
 `;
 
