@@ -47,16 +47,29 @@ export default function GalleryGrid({ items }: Props) {
           ?? (item.image ? urlFor(item.image).width(600).url() : PLACEHOLDER)
         const caption = item.caption?.[locale] ?? item.caption?.en
 
+        /* Alternate direction: even slides from left, odd from right */
+        const fromLeft = i % 2 === 0
+
         return (
           <motion.div
             key={item._id}
             className="group relative break-inside-avoid mb-2 md:mb-3 overflow-hidden rounded-xl bg-tamna/60"
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: '-40px' }}
+            initial={{
+              opacity: 0,
+              x: fromLeft ? -40 : 40,
+              rotateZ: fromLeft ? -2 : 2,
+              scale: 0.92,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+              rotateZ: 0,
+              scale: 1,
+            }}
+            viewport={{ once: true, margin: '-30px' }}
             transition={{
-              duration: 0.55,
-              delay: Math.min(i * 0.05, 0.4),
+              duration: 0.7,
+              delay: Math.min(i * 0.06, 0.5),
               ease: EASE_EXPO,
             }}
           >

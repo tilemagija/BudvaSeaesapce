@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import ScrollRevealWords from '../ScrollRevealWords'
 
 const EASE_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
@@ -21,21 +22,15 @@ export default function ToursSectionHeader({ headline, subtitle }: Props) {
       >
         Budva · Montenegro
       </motion.p>
-      <motion.h2
-        className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-tamna leading-[1.1] tracking-tight"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7, delay: 0.1, ease: EASE_EXPO }}
-      >
-        {headline}
-      </motion.h2>
+      <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-tamna leading-[1.1] tracking-tight">
+        <ScrollRevealWords text={headline} baseDelay={0.1} />
+      </h2>
       <motion.p
         className="mt-4 text-tamna/50 text-base font-light"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.6, delay: 0.2, ease: EASE_EXPO }}
+        transition={{ duration: 0.6, delay: 0.4, ease: EASE_EXPO }}
       >
         {subtitle}
       </motion.p>

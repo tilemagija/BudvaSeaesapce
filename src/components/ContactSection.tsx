@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
 import MagneticWrap from './MagneticWrap'
+import ScrollRevealWords from './ScrollRevealWords'
 
 const WA_NUMBER = '38267087728'
 const IG_URL = 'https://www.instagram.com/budvaseaescape'
@@ -36,7 +37,7 @@ export default function ContactSection() {
             Budva · Montenegro
           </p>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-svetla leading-[1.1] tracking-tight">
-            {t('title')}
+            <ScrollRevealWords text={t('title')} baseDelay={0.1} />
           </h2>
         </motion.div>
 
