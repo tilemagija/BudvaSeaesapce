@@ -24,8 +24,8 @@ function WordReveal({ text, baseDelay = 0 }: { text: string; baseDelay?: number 
             initial={{ y: '110%', opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
-              duration: 0.7,
-              delay: baseDelay + i * 0.08,
+              duration: 0.5,
+              delay: baseDelay + i * 0.07,
               ease: EASE_EXPO,
             }}
           >
@@ -61,8 +61,10 @@ export default function HeroSection({ heroImageUrl }: Props) {
           className="object-cover object-center"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-tamna/70 via-tamna/50 to-tamna/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-tamna/70 via-tamna/40 to-tamna/80" />
         <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#FF6B4A]/20 to-transparent" />
+        {/* Koralna ambient glow — bottom left, like a sun near the horizon */}
+        <div className="absolute bottom-0 left-0 h-[45%] w-[60%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,74,0.15)_0%,_transparent_70%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-tamna to-transparent" />
       </motion.div>
 
@@ -73,7 +75,7 @@ export default function HeroSection({ heroImageUrl }: Props) {
           className="mb-5 text-xs font-semibold tracking-[0.45em] text-tirkizna uppercase"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: EASE_EXPO }}
+          transition={{ duration: 0.45, delay: 0.2, ease: EASE_EXPO }}
         >
           Budva · Montenegro
         </motion.p>
@@ -88,7 +90,7 @@ export default function HeroSection({ heroImageUrl }: Props) {
           className="mx-auto mb-10 max-w-lg text-base font-light leading-relaxed text-svetla/70 md:text-lg"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.75, ease: EASE_EXPO }}
+          transition={{ duration: 0.5, delay: 0.65, ease: EASE_EXPO }}
         >
           {t('subheadline')}
         </motion.p>
@@ -98,22 +100,26 @@ export default function HeroSection({ heroImageUrl }: Props) {
           className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.0, ease: EASE_EXPO }}
+          transition={{ duration: 0.5, delay: 0.85, ease: EASE_EXPO }}
         >
-          <a
+          <motion.a
             href="#tours"
-            className="w-full bg-tirkizna px-8 py-4 text-xs font-bold tracking-[0.25em] text-tamna uppercase transition-all hover:opacity-90 sm:w-auto"
+            className="w-full bg-tirkizna px-8 py-4 text-xs font-bold tracking-[0.25em] text-tamna uppercase transition-all hover:shadow-lg hover:shadow-tirkizna/25 sm:w-auto"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.96 }}
           >
             {t('cta')}
-          </a>
-          <a
+          </motion.a>
+          <motion.a
             href={WA_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className="w-full border border-svetla/30 px-8 py-4 text-xs font-semibold tracking-[0.25em] text-svetla/80 uppercase transition-all hover:border-svetla hover:text-svetla sm:w-auto"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.96 }}
           >
             {t('ctaSecondary')}
-          </a>
+          </motion.a>
         </motion.div>
       </div>
 

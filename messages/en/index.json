@@ -12,15 +12,15 @@
     "locale": "English"
   },
   "hero": {
-    "headline": "Your sea awaits",
-    "subheadline": "Premium Adriatic experiences — tours, diving, fishing, sunset cruises",
-    "cta": "Explore Tours",
-    "ctaSecondary": "Contact Us"
+    "headline": "The Adriatic is yours.",
+    "subheadline": "Sun. Salt. No schedule. Just the open sea.",
+    "cta": "Jump In",
+    "ctaSecondary": "Let's Talk"
   },
   "tours": {
     "title": "Our Tours",
-    "headline": "Set sail. Explore. Remember forever.",
-    "subtitle": "Every experience is a unique adventure",
+    "headline": "Pick your adventure. We handle the rest.",
+    "subtitle": "Every trip is one you'll never forget",
     "startAdventure": "Start your adventure",
     "bookNow": "Book now",
     "bookWhatsApp": "Book via WhatsApp",

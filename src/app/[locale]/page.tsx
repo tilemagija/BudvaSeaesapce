@@ -7,6 +7,7 @@ import CaptainSection from '@/components/CaptainSection'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import StickyBookBar from '@/components/StickyBookBar'
+import SectionDivider from '@/components/SectionDivider'
 
 export default function HomePage() {
   return (
@@ -22,8 +23,11 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ToursSection />
+        <SectionDivider />
         <GallerySection />
+        <SectionDivider />
         <CaptainSection />
+        <SectionDivider />
         <ContactSection />
       </main>
 

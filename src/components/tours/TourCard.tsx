@@ -28,8 +28,9 @@ export default function TourCard({ tour, onOpen }: Props) {
   return (
     <motion.article
       className="group relative flex-shrink-0 w-[78vw] sm:w-72 md:w-80 cursor-pointer rounded-2xl overflow-hidden shadow-md [scroll-snap-align:start]"
-      whileHover={{ y: -6, boxShadow: '0 24px 48px rgba(0,194,199,0.18)' }}
-      transition={{ duration: 0.25, ease: 'easeOut' }}
+      whileHover={{ y: -10, boxShadow: '0 28px 50px rgba(0,194,199,0.25)' }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
       onClick={() => onOpen(tour)}
     >
       {/* Cover image */}
