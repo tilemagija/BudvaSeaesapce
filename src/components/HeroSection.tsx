@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import MagneticWrap from './MagneticWrap'
 import { useTranslations } from 'next-intl'
 
 const WA_LINK = `https://wa.me/38267087728?text=${encodeURIComponent("Hi! I'm interested in booking a sea experience.")}`
@@ -131,24 +132,28 @@ export default function HeroSection({ heroImageUrl, heroVideoUrl }: Props) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.85, ease: EASE_EXPO }}
         >
-          <motion.a
-            href="#tours"
-            className="w-full bg-tirkizna px-8 py-4 text-xs font-bold tracking-[0.25em] text-tamna uppercase transition-all hover:shadow-lg hover:shadow-tirkizna/25 sm:w-auto"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            {t('cta')}
-          </motion.a>
-          <motion.a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full border border-svetla/30 px-8 py-4 text-xs font-semibold tracking-[0.25em] text-svetla/80 uppercase transition-all hover:border-svetla hover:text-svetla sm:w-auto"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.96 }}
-          >
-            {t('ctaSecondary')}
-          </motion.a>
+          <MagneticWrap className="w-full sm:w-auto">
+            <motion.a
+              href="#tours"
+              className="block w-full bg-tirkizna px-8 py-4 text-xs font-bold tracking-[0.25em] text-tamna uppercase transition-all hover:shadow-lg hover:shadow-tirkizna/25 sm:w-auto"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              {t('cta')}
+            </motion.a>
+          </MagneticWrap>
+          <MagneticWrap className="w-full sm:w-auto">
+            <motion.a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full border border-svetla/30 px-8 py-4 text-xs font-semibold tracking-[0.25em] text-svetla/80 uppercase transition-all hover:border-svetla hover:text-svetla sm:w-auto"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+            >
+              {t('ctaSecondary')}
+            </motion.a>
+          </MagneticWrap>
         </motion.div>
       </div>
 

@@ -1,6 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useTranslations, useLocale } from 'next-intl'
 import { urlFor } from '@/sanity/client'
@@ -25,14 +26,60 @@ export default function TourCard({ tour, onOpen }: Props) {
   const title = tour.title?.[locale] ?? tour.title?.en ?? ''
   const description = tour.shortDescription?.[locale] ?? tour.shortDescription?.en ?? ''
 
+  /* ---- 3D tilt via Framer Motion springs ---- */
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [10, -10]), {
+    stiffness: 250,
+    damping: 25,
+  })
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-10, 10]), {
+    stiffness: 250,
+    damping: 25,
+  })
+
+  /* Glare position (tirkizna reflection) */
+  const [glare, setGlare] = useState({ x: 50, y: 50 })
+
+  function handleMouse(e: React.MouseEvent) {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const px = (e.clientX - rect.left) / rect.width
+    const py = (e.clientY - rect.top) / rect.height
+    mouseX.set(px - 0.5)
+    mouseY.set(py - 0.5)
+    setGlare({ x: px * 100, y: py * 100 })
+  }
+
+  function handleLeave() {
+    mouseX.set(0)
+    mouseY.set(0)
+    setGlare({ x: 50, y: 50 })
+  }
+
   return (
     <motion.article
       className="group relative flex-shrink-0 w-[78vw] sm:w-72 md:w-80 cursor-pointer rounded-2xl overflow-hidden shadow-md [scroll-snap-align:start]"
-      whileHover={{ y: -10, boxShadow: '0 28px 50px rgba(0,194,199,0.25)' }}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 800,
+        transformStyle: 'preserve-3d',
+      }}
       whileTap={{ scale: 0.97 }}
       transition={{ duration: 0.2, ease: 'easeOut' }}
+      onMouseMove={handleMouse}
+      onMouseLeave={handleLeave}
       onClick={() => onOpen(tour)}
     >
+      {/* Tirkizna glare overlay */}
+      <div
+        className="pointer-events-none absolute inset-0 z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(0,194,199,0.15) 0%, transparent 60%)`,
+        }}
+      />
+
       {/* Cover image */}
       <div className="relative h-52 sm:h-60 overflow-hidden">
         <Image
