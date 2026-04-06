@@ -33,7 +33,7 @@ export default async function CaptainSection() {
   const bioText = captain?.bio?.[locale] ?? captain?.bio?.en ?? null
   const bioPlain = bioText
     ? bioText.flatMap((b: { children?: { text: string }[] }) => b.children?.map((c) => c.text) ?? []).join(' ')
-    : 'Placeholder tekst o kapetanu — Nemanja može promijeniti kroz /admin → Kapetan.'
+    : "I'm a passionate fisherman and sea lover — I enjoy breathtaking sunsets from my boat, great company, and adventures like snorkeling, cliff jumping, and exploring caves. Every day at sea is a new chance to embrace nature and create memories worth keeping."
 
   return (
     <CaptainSectionClient

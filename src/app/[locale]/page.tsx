@@ -8,6 +8,7 @@ import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
 import StickyBookBar from '@/components/StickyBookBar'
 import SectionDivider from '@/components/SectionDivider'
+import AudioPlayerServer from '@/components/AudioPlayerServer'
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       {/* Fixed UI */}
       <Nav />
       <StickyBookBar />
+      <AudioPlayerServer />
 
       {/* Page content */}
       <main>

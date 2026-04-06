@@ -135,6 +135,7 @@ export const siteSettingsQuery = groq`
     "seoTitle": seoTitle,
     "seoDescription": seoDescription,
     ogImage,
+    backgroundMusicUrl,
     "footerText": footerText,
     copyrightText
   }

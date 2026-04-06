@@ -36,6 +36,12 @@ export const siteSettings = defineType({
     defineField({ name: "seoTitle", title: "SEO naslov", type: "localeString" }),
     defineField({ name: "seoDescription", title: "SEO opis", type: "localeText" }),
     defineField({ name: "ogImage", title: "OG slika (za share preview)", type: "image" }),
+    defineField({
+      name: "backgroundMusicUrl",
+      title: "Pozadinska muzika (direktan MP3 link)",
+      type: "url",
+      description: "Direktan link na MP3 fajl sa royalty-free sajtova (pixabay.com/music ili mixkit.co). NE koristiti YouTube ili Spotify linkove.",
+    }),
     defineField({ name: "footerText", title: "Footer tekst", type: "localeString" }),
     defineField({
       name: "copyrightText",

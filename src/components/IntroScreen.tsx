@@ -31,6 +31,8 @@ export default function IntroScreen() {
       sessionStorage.setItem('hasSeenIntro', '1')
     } catch {}
     setShow(false)
+    // Signal AudioPlayer to start music
+    window.dispatchEvent(new CustomEvent('budva:enter'))
   }
 
   return (
