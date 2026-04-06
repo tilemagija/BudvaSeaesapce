@@ -61,6 +61,12 @@ body {
   animation: shimmer-sweep 4s linear infinite;
 }
 
+/* Wave divider — continuous horizontal drift, 3 layers */
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
