@@ -130,6 +130,7 @@ export const siteSettingsQuery = groq`
     "heroSubheadline": heroSubheadline,
     "heroCtaText": heroCtaText,
     heroBackgroundImage,
+    heroBackgroundVideo,
     "introText": introText,
     "introCtaText": introCtaText,
     "seoTitle": seoTitle,

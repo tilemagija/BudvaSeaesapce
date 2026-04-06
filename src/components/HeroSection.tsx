@@ -1,16 +1,21 @@
 'use client'
 
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 
 const WA_LINK = `https://wa.me/38267087728?text=${encodeURIComponent("Hi! I'm interested in booking a sea experience.")}`
+
+/* Placeholder: aerial turquoise sea — Mixkit royalty-free */
+const PLACEHOLDER_VIDEO = 'https://assets.mixkit.co/videos/50210/50210-720.mp4'
 const PLACEHOLDER_IMAGE = 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80'
 
 const EASE_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 interface Props {
   heroImageUrl: string | null
+  heroVideoUrl: string | null
 }
 
 function WordReveal({ text, baseDelay = 0 }: { text: string; baseDelay?: number }) {
@@ -37,30 +42,54 @@ function WordReveal({ text, baseDelay = 0 }: { text: string; baseDelay?: number 
   )
 }
 
-export default function HeroSection({ heroImageUrl }: Props) {
+export default function HeroSection({ heroImageUrl, heroVideoUrl }: Props) {
   const t = useTranslations('hero')
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [videoReady, setVideoReady] = useState(false)
+
   const imageSrc = heroImageUrl ?? PLACEHOLDER_IMAGE
+  const videoSrc = heroVideoUrl ?? PLACEHOLDER_VIDEO
 
   return (
     <section
       id="hero"
       className="relative flex min-h-screen items-center justify-center overflow-hidden bg-tamna"
     >
-      {/* Background image — subtle Ken Burns scale */}
+      {/* Background layers */}
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.08 }}
         animate={{ scale: 1 }}
         transition={{ duration: 2.2, ease: EASE_EXPO }}
       >
+        {/* Fallback image — always present, hidden when video loads */}
         <Image
           src={imageSrc}
           alt="Budva sea experience"
           fill
           priority
-          className="object-cover object-center"
+          className={`object-cover object-center transition-opacity duration-1000 ${
+            videoReady ? 'opacity-0' : 'opacity-100'
+          }`}
           sizes="100vw"
         />
+
+        {/* Video background */}
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          onCanPlayThrough={() => setVideoReady(true)}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+            videoReady ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+
+        {/* Gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-tamna/70 via-tamna/40 to-tamna/80" />
         <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#FF6B4A]/20 to-transparent" />
         {/* Koralna ambient glow — bottom left, like a sun near the horizon */}

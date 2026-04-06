@@ -27,9 +27,16 @@ export const siteSettings = defineType({
     defineField({ name: "heroCtaText", title: "Hero CTA tekst", type: "localeString" }),
     defineField({
       name: "heroBackgroundImage",
-      title: "Hero pozadinska slika",
+      title: "Hero pozadinska slika (fallback)",
       type: "image",
       options: { hotspot: true },
+      description: "Koristi se kao fallback dok se video učita, ili ako video nije postavljen.",
+    }),
+    defineField({
+      name: "heroBackgroundVideo",
+      title: "Hero pozadinski video",
+      type: "url",
+      description: "Direktan link na MP4 video fajl. Video se vrti u petlji bez zvuka. Koristiti kratke klipove (10-20 sekundi). Sajtovi: mixkit.co, pixabay.com/videos, pexels.com/videos",
     }),
     defineField({ name: "introText", title: "Intro ekran tekst", type: "localeString" }),
     defineField({ name: "introCtaText", title: "Intro CTA (dugme)", type: "localeString" }),
