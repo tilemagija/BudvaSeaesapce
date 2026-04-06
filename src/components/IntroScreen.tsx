@@ -30,8 +30,14 @@ export default function IntroScreen() {
     try {
       sessionStorage.setItem('hasSeenIntro', '1')
     } catch {}
+    // Play audio directly within user gesture — browser allows this
+    const audio = document.querySelector('audio[loop]') as HTMLAudioElement | null
+    if (audio) {
+      audio.volume = 0.35
+      audio.play().catch(() => {})
+    }
     setShow(false)
-    // Signal AudioPlayer to start music
+    // Signal AudioPlayer to update UI state
     window.dispatchEvent(new CustomEvent('budva:enter'))
   }
 

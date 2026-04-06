@@ -18,11 +18,14 @@ export default function AudioPlayer({ src }: Props) {
       setVisible(true)
       if (!audioRef.current) return
       audioRef.current.volume = 0.35
-      audioRef.current.play()
-        .then(() => setPlaying(true))
-        .catch(() => {
-          // Browser blocked autoplay — show button, user can click manually
-        })
+      if (!audioRef.current.paused) {
+        // Already playing (started directly from IntroScreen click)
+        setPlaying(true)
+      } else {
+        audioRef.current.play()
+          .then(() => setPlaying(true))
+          .catch(() => {})
+      }
     }
     window.addEventListener('budva:enter', onEnter)
     return () => window.removeEventListener('budva:enter', onEnter)
