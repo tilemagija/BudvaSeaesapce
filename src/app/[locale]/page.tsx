@@ -25,11 +25,11 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <ToursSection />
-        <SectionDivider />
+        <SectionDivider variant="light-to-dark" />
         <GallerySection />
-        <SectionDivider />
+        <SectionDivider variant="dark-to-light" />
         <CaptainSection />
-        <SectionDivider />
+        <SectionDivider variant="light-to-dark" />
         <ContactSection />
       </main>
 
