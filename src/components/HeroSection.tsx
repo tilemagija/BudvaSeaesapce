@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import MagneticWrap from './MagneticWrap'
+import AmbientParticles from './AmbientParticles'
 import { useTranslations } from 'next-intl'
 
 const WA_LINK = `https://wa.me/38267087728?text=${encodeURIComponent("Hi! I'm interested in booking a sea experience.")}`
@@ -97,6 +98,9 @@ export default function HeroSection({ heroImageUrl, heroVideoUrl }: Props) {
         <div className="absolute bottom-0 left-0 h-[45%] w-[60%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,74,0.12)_0%,_transparent_70%)]" />
         <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-tamna/80 to-transparent" />
       </motion.div>
+
+      {/* Ambient light particles — sunlight on water */}
+      <AmbientParticles count={30} color="white" />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-32 text-center md:py-48">
