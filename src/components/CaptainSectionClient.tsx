@@ -47,12 +47,12 @@ export default function CaptainSectionClient({ title, name, imageUrl, tagline, b
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 1.2, ease: EASE_EXPO }}
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/5]">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[3/4]">
               <Image
                 src={imageUrl}
                 alt={name}
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, 320px"
               />
               <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-tirkizna" />

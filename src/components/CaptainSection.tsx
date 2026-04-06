@@ -25,7 +25,7 @@ export default async function CaptainSection() {
   }
 
   const imageUrl = captain?.photo
-    ? urlFor(captain.photo).width(600).height(700).fit('crop').url()
+    ? urlFor(captain.photo).width(600).height(800).fit('crop').crop('top').url()
     : PLACEHOLDER_IMG
 
   const tagline = captain?.tagline?.[locale] ?? captain?.tagline?.en ?? 'Your captain, your guide'
