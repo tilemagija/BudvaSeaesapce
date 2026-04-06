@@ -90,11 +90,11 @@ export default function HeroSection({ heroImageUrl, heroVideoUrl }: Props) {
         />
 
         {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-tamna/70 via-tamna/40 to-tamna/80" />
-        <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#FF6B4A]/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-tamna/55 via-tamna/20 to-tamna/65" />
+        <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-[#FF6B4A]/15 to-transparent" />
         {/* Koralna ambient glow — bottom left, like a sun near the horizon */}
-        <div className="absolute bottom-0 left-0 h-[45%] w-[60%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,74,0.15)_0%,_transparent_70%)]" />
-        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-tamna to-transparent" />
+        <div className="absolute bottom-0 left-0 h-[45%] w-[60%] bg-[radial-gradient(ellipse_at_bottom_left,_rgba(255,107,74,0.12)_0%,_transparent_70%)]" />
+        <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-tamna/80 to-transparent" />
       </motion.div>
 
       {/* Content */}
