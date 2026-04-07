@@ -53,9 +53,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   // OG image: Sanity ogImage → heroBackgroundImage → nothing
   const ogImageAsset = settings?.ogImage ?? settings?.heroBackgroundImage ?? null;
-  const ogImageUrl = ogImageAsset
+  const ogImageUrl: string | null = ogImageAsset
     ? urlFor(ogImageAsset).width(1200).height(630).fit("crop").url()
-    : `${BASE_URL}/og-default.jpg`;
+    : null;
 
   // Canonical + alternates
   const canonicalUrl = `${BASE_URL}/${locale}`;
@@ -78,14 +78,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       url: canonicalUrl,
       siteName: "Budva Sea Escape",
-      images: [
-        {
-          url: ogImageUrl,
-          width: 1200,
-          height: 630,
-          alt: "Budva Sea Escape",
-        },
-      ],
+      ...(ogImageUrl && {
+        images: [{ url: ogImageUrl, width: 1200, height: 630, alt: "Budva Sea Escape" }],
+      }),
       locale: locale === "ru" ? "ru_RU" : locale === "me" ? "sr_ME" : "en_US",
       type: "website",
     },
@@ -93,7 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImageUrl],
+      ...(ogImageUrl && { images: [ogImageUrl] }),
     },
     robots: {
       index: true,
