@@ -1,18 +1,12 @@
-import type { Metadata } from "next";
+// src/app/layout.tsx
+import { getLocale } from "next-intl/server";
+import type { ReactNode } from "react";
 import "./globals.css";
 
-export const metadata: Metadata = {
-  title: "Budva Sea Escape",
-  description: "Premium sea experiences in Budva, Montenegro",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const locale = await getLocale();
   return (
-    <html lang="me" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <body className="antialiased">
         {children}
       </body>
