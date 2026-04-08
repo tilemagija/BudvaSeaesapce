@@ -84,7 +84,7 @@ export default function HeroSection({ heroImageUrl, heroVideoUrl }: Props) {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           onCanPlayThrough={() => setVideoReady(true)}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
             videoReady ? 'opacity-100' : 'opacity-0'
