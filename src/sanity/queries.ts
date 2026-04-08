@@ -153,3 +153,11 @@ export const offersQuery = groq`
     "linkedTour": linkedTour->{ _id, "title": title, "slug": slug.current }
   }
 `;
+
+// ---- SITEMAP / STATIC PARAMS ----
+export const tourSlugsQuery = groq`
+  *[_type == "tour" && isActive == true] {
+    "slug": slug.current,
+    _updatedAt
+  }
+`;
