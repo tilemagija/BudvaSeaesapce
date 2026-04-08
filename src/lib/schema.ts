@@ -45,10 +45,10 @@ export function buildLocalBusiness() {
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "108",
-      bestRating: "5",
-      worstRating: "1",
+      ratingValue: 5.0,
+      reviewCount: 108,
+      bestRating: 5,
+      worstRating: 1,
     },
     touristType: ["Couples", "Families", "Adventure seekers"],
   };
