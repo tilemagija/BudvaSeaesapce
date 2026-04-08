@@ -11,6 +11,7 @@ import { client, urlFor } from "@/sanity/client";
 import { tourBySlugQuery, tourSlugsQuery } from "@/sanity/queries";
 import { routing } from "@/i18n/routing";
 import type { TourDetail } from "@/types/tour";
+import { buildTouristTrip, buildBreadcrumb } from "@/lib/schema";
 
 const BASE_URL = "https://budvaseaescape.com";
 const WA_NUMBER = "38267087728";
@@ -148,6 +149,38 @@ export default async function TourPage({
 
   return (
     <>
+      <script
+        key="ld-tourist-trip"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildTouristTrip(
+              {
+                name: title,
+                description: shortDesc,
+                slug,
+                price: tour.price,
+                duration: tour.duration,
+                maxPeople: tour.maxPeople,
+                imageUrl,
+              },
+              locale
+            )
+          ),
+        }}
+      />
+      <script
+        key="ld-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            buildBreadcrumb([
+              { name: "Budva Sea Escape", url: `${BASE_URL}/${locale}` },
+              { name: title, url: `${BASE_URL}/${locale}/tours/${slug}` },
+            ])
+          ),
+        }}
+      />
       <Nav />
 
       <main className="min-h-screen bg-tamna pt-20">
