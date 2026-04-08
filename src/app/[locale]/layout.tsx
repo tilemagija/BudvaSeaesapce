@@ -5,7 +5,8 @@ import { routing } from "@/i18n/routing";
 import type { Metadata } from "next";
 import LenisProvider from "@/components/LenisProvider";
 import { client, urlFor } from "@/sanity/client";
-import { siteSettingsQuery } from "@/sanity/queries";
+import { siteSettingsQuery, captainQuery } from "@/sanity/queries";
+import { buildLocalBusiness, buildCaptainPerson } from "@/lib/schema";
 
 const BASE_URL = "https://budvaseaescape.com";
 
@@ -110,11 +111,31 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   const messages = await getMessages();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let captain: any = null;
+  try {
+    captain = await client.fetch(captainQuery, {}, { next: { revalidate: 3600 } });
+  } catch {
+    // Sanity unavailable — skip captain schema
+  }
+
   return (
-    <NextIntlClientProvider locale={locale} messages={messages}>
-      <LenisProvider>
-        {children}
-      </LenisProvider>
-    </NextIntlClientProvider>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusiness()) }}
+      />
+      {captain?.name && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCaptainPerson(captain.name)) }}
+        />
+      )}
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <LenisProvider>
+          {children}
+        </LenisProvider>
+      </NextIntlClientProvider>
+    </>
   );
 }
