@@ -112,6 +112,19 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let settings: any = null;
+  try {
+    settings = await client.fetch(siteSettingsQuery, {}, { next: { revalidate: 60 } });
+  } catch {
+    // Sanity unavailable — skip image in schema
+  }
+
+  const ogImageAsset = settings?.ogImage ?? settings?.heroBackgroundImage ?? null;
+  const localBusinessImageUrl: string | null = ogImageAsset
+    ? urlFor(ogImageAsset).width(1200).height(630).fit("crop").url()
+    : null;
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let captain: any = null;
   try {
     captain = await client.fetch(captainQuery, {}, { next: { revalidate: 3600 } });
@@ -124,7 +137,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <script
         key="ld-local-business"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusiness()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusiness(localBusinessImageUrl ?? undefined)) }}
       />
       {captain?.name && (
         <script

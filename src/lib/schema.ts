@@ -4,7 +4,7 @@ const BASE_URL = "https://budvaseaescape.com";
 
 // ---- LocalBusiness + TouristAttraction ----
 
-export function buildLocalBusiness() {
+export function buildLocalBusiness(imageUrl?: string) {
   return {
     "@context": "https://schema.org",
     "@type": ["TouristAttraction", "LocalBusiness"],
@@ -13,6 +13,7 @@ export function buildLocalBusiness() {
     description:
       "Premium boat tours, snorkeling, fishing and sunset cruises on the Adriatic Sea in Budva, Montenegro.",
     url: BASE_URL,
+    ...(imageUrl && { image: imageUrl }),
     telephone: "+38267087728",
     foundingDate: "2022",
     priceRange: "€€",
