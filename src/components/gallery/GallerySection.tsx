@@ -17,7 +17,7 @@ const PLACEHOLDER_ITEMS: GalleryItem[] = [
   { _id: 'p8', mediaType: 'image', image: null, _placeholderUrl: 'https://images.unsplash.com/photo-1568430462989-44163eb1752f?w=600&q=80' },
   { _id: 'p9', mediaType: 'image', image: null, _placeholderUrl: 'https://images.unsplash.com/photo-1439405326854-014607f694d7?w=600&q=80' },
   { _id: 'p10', mediaType: 'image', image: null, _placeholderUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80' },
-  { _id: 'p11', mediaType: 'image', image: null, _placeholderUrl: 'https://images.unsplash.com/photo-1490591255693-fd50f0a1c71c?w=600&q=80' },
+  { _id: 'p11', mediaType: 'image', image: null, _placeholderUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80' },
   { _id: 'p12', mediaType: 'image', image: null, _placeholderUrl: 'https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80' },
 ] as GalleryItem[]
 

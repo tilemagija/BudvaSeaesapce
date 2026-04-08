@@ -83,7 +83,7 @@ export default function Nav() {
                   className={`text-xs font-semibold tracking-[0.15em] uppercase transition-colors ${
                     code === locale
                       ? 'text-tirkizna'
-                      : 'text-svetla/35 hover:text-svetla/70'
+                      : 'text-svetla/60 hover:text-svetla/80'
                   }`}
                 >
                   {label}
@@ -193,7 +193,7 @@ export default function Nav() {
                   locale={code}
                   onClick={() => setMenuOpen(false)}
                   className={`text-sm font-semibold tracking-[0.2em] uppercase transition-colors ${
-                    code === locale ? 'text-tirkizna' : 'text-svetla/30 hover:text-svetla/60'
+                    code === locale ? 'text-tirkizna' : 'text-svetla/60 hover:text-svetla/80'
                   }`}
                 >
                   {label}

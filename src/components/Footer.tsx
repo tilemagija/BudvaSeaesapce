@@ -13,7 +13,7 @@ export default async function Footer() {
         <div className="flex flex-col items-center gap-8 text-center">
           <LogoSVG size="md" />
 
-          <p className="text-xs tracking-[0.15em] text-svetla/35">
+          <p className="text-xs tracking-[0.15em] text-svetla/55">
             {t('tagline')}
           </p>
 
