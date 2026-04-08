@@ -122,11 +122,13 @@ export default async function LocaleLayout({ children, params }: Props) {
   return (
     <>
       <script
+        key="ld-local-business"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildLocalBusiness()) }}
       />
       {captain?.name && (
         <script
+          key="ld-captain-person"
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(buildCaptainPerson(captain.name)) }}
         />
